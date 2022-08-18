@@ -246,6 +246,16 @@ export async function launch(appEntry: App) {
 
 				await fin.System.launchExternalProcess(options);
 			}
+		} else if (appEntry.manifestType === manifestTypes.inlineExternal.id) {
+			console.log(
+				"Application requested is a native app defined as inline-external. Managing request via platform and not Workspace."
+			);
+			try {
+				const options = appEntry.manifest as OpenFin.ExternalProcessRequestType;
+				await fin.System.launchExternalProcess(options);
+			} catch (err) {
+				console.error(`Error trying to launch inline-external with appId: ${appEntry.appId}`, err);
+			}
 		} else if (appEntry.manifestType === manifestTypes.inlineView.id) {
 			await launchView(appEntry);
 		} else if (

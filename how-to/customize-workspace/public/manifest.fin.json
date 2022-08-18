@@ -12,7 +12,7 @@
 		"name": "workspace-starter-how-to-customize-workspace",
 		"uuid": "customize-workspace",
 		"icon": "http://localhost:8080/favicon.ico",
-		"autoShow": false,
+		"autoShow": true,
 		"providerUrl": "http://localhost:8080/platform/provider.html",
 		"preventQuitOnLastWindowClosed": true,
 		"permissions": {
@@ -98,7 +98,32 @@
 				"inline-view",
 				"window",
 				"inline-window",
-				"desktop-browser"
+				"desktop-browser",
+				"connection",
+				"inline-external"
+			]
+		},
+		"connectionProvider": {
+			"connectionId": "workspace-connection",
+			"supportedActions": [
+				"show-home",
+				"show-store",
+				"show-dock",
+				"hide-home",
+				"hide-store",
+				"minimize-dock"
+			],
+			"connections": [
+				{
+					"identity": { "uuid": "openfin-dotnet6-wpf-test-harness" },
+					"validatePayload": false,
+					"connectionTypes": [{ "type": "appSource" }, { "type": "snapshotSource" }, { "type": "actions" }]
+				},
+				{
+					"identity": { "uuid": "openfin-dotnet4-winform-test-harness" },
+					"validatePayload": false,
+					"connectionTypes": [{ "type": "appSource" }, { "type": "snapshotSource" }, { "type": "actions" }]
+				}
 			]
 		},
 		"endpointProvider": {
